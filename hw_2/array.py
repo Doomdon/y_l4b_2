@@ -9,8 +9,13 @@ class Movie:
     dates: List[Tuple[datetime, datetime]]
 
     def schedule(self) -> Generator[datetime, None, None]:
-        return [[d1 + timedelta(i) for i in range((d2 - d1).days + 1)] for d1, d2 in self.dates]
+        for i in self.dates:
+            first_date = i[0]
+            second_date = i[1]
 
+            while first_date <= second_date:
+                yield first_date
+                first_date += timedelta(days=1)
 
 m = Movie('sw', [
   (datetime(2020, 1, 1), datetime(2020, 1, 7)),
@@ -22,5 +27,5 @@ m = Movie('sw', [
 ])
 
 for d in m.schedule():
-    print(*d)
+    print(d)
 
