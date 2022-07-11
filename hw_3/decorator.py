@@ -62,7 +62,7 @@ def redis_cached(func):
     return wrapper
 
 
-@cacheв
+@cached
 def multiplier(number: int):
     return number * 2
 
