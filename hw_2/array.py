@@ -9,6 +9,7 @@ class Movie:
     dates: List[Tuple[datetime, datetime]]
 
     def schedule(self) -> Generator[datetime, None, None]:
+
         for i in self.dates:
             first_date = i[0]
             second_date = i[1]
@@ -26,6 +27,7 @@ m = Movie('sw', [
 
 ])
 
-for d in m.schedule():
-    print(d)
+if __name__ == "__main__":
+    for d in m.schedule():
+        print(d)
 
