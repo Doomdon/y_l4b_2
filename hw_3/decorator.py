@@ -1,7 +1,6 @@
 import functools
 import logging
 
-
 logging.basicConfig()
 _LOGGING_LEVEL = logging.DEBUG
 _LOGGER = logging.getLogger(__name__)
@@ -9,11 +8,10 @@ _LOGGER.setLevel(_LOGGING_LEVEL)
 
 
 def cached(func):
-
     cache = {}
 
     @functools.wraps(func)
-    def wrapper(*args, **kwargs):
+    def wrapper(*args):
 
         # signature = (func, args)
         _LOGGER.debug('using signature')
@@ -34,13 +32,12 @@ def cached(func):
     return wrapper
 
 
-
 @cached
 def multiplier(number: int):
     return number * 2
 
 
-#тесты
+# тесты
 def tests():
     print(multiplier(2))
     print(multiplier(2))
@@ -48,18 +45,11 @@ def tests():
     print(multiplier(str(2)))
     a = {1: 3,
          2: 3,
-         'key':'value'}
+         'key': 'value'}
     print(multiplier(str(a)))
     print(multiplier(str(a)))
     print(multiplier(str(a)))
+
 
 if __name__ == "__main__":
     tests()
-
-
-
-
-
-
-
-

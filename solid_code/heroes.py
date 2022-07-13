@@ -12,7 +12,8 @@ class SuperHero(ABC):
         self.name = name
         self.can_use_ultimate_attack = can_use_ultimate_attack
 
-    def find(self, place: Place):
+    @staticmethod
+    def find(place: Place):
         place.antagonist()
 
     @abstractmethod
@@ -25,17 +26,20 @@ class SuperHero(ABC):
 
 # mixins
 class Gun:
-    def fire_a_gun(self):
+    @staticmethod
+    def fire_a_gun():
         print('PIU PIU')
 
 
 class Laser:
-    def incinerate_with_lasers(self):
+    @staticmethod
+    def incinerate_with_lasers():
         print('Wzzzuuuup!')
 
 
 class Kick:
-    def roundhouse_kick(self):
+    @staticmethod
+    def roundhouse_kick():
         print('Bump')
 
 
