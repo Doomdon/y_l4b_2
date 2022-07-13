@@ -18,16 +18,15 @@ class Movie:
                 yield first_date
                 first_date += timedelta(days=1)
 
-m = Movie('sw', [
-  (datetime(2020, 1, 1), datetime(2020, 1, 7)),
-  (datetime(2020, 1, 15), datetime(2020, 2, 7)),
-# (datetime(2020, 1, 1), datetime(2020, 1, 3)),
-# (datetime(2020, 1, 15), datetime(2020, 2, 7)),
 
+m = Movie('sw', [
+    (datetime(2020, 1, 1), datetime(2020, 1, 7)),
+    (datetime(2020, 1, 15), datetime(2020, 2, 7)),
+    # (datetime(2020, 1, 1), datetime(2020, 1, 3)),
+    # (datetime(2020, 1, 15), datetime(2020, 2, 7)),
 
 ])
 
 if __name__ == "__main__":
     for d in m.schedule():
         print(d)
-
