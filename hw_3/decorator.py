@@ -1,8 +1,6 @@
 import functools
 import logging
-import json
-from functools import wraps
-from redis import StrictRedis
+
 
 logging.basicConfig()
 _LOGGING_LEVEL = logging.DEBUG
@@ -37,31 +35,6 @@ def cached(func):
 
 
 
-
-redis = StrictRedis()
-
-
-def redis_cached(func):
-
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        key_parts = [func.__name__] + list(args)
-        key = '-'.join(key_parts)
-        result = redis.get(key)
-
-        if result is None:
-            value = func(*args, **kwargs)
-            value_json = json.dumps(value)
-            redis.set(key, value_json)
-        else:
-            value_json = result.decode('utf-8')
-            value = json.loads(value_json)
-
-        return value
-
-    return wrapper
-
-
 @cached
 def multiplier(number: int):
     return number * 2
@@ -72,13 +45,13 @@ def tests():
     print(multiplier(2))
     print(multiplier(2))
     print(multiplier(2))
-    # print(multiplier(str(2)))
-    # a = {1: 3,
-    #      2: 3,
-    #      'key':'value'}
-    # print(multiplier(str(a)))
-    # print(multiplier(str(a)))
-    # print(multiplier(str(a)))
+    print(multiplier(str(2)))
+    a = {1: 3,
+         2: 3,
+         'key':'value'}
+    print(multiplier(str(a)))
+    print(multiplier(str(a)))
+    print(multiplier(str(a)))
 
 if __name__ == "__main__":
     tests()
