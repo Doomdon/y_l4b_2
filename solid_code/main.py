@@ -1,4 +1,3 @@
-
 from media import NewsPaper, TV
 from heroes import ChackNorris, Superman, SuperHero
 from places import Kostroma, Place, Tokyo
@@ -11,8 +10,6 @@ def save_the_place(hero: SuperHero, place: Place, papers: NewsPaper, tv: TV):
         hero.ultimate()
     papers.create_news(place, hero)
     tv.create_news(place, hero)
-
-
 
 
 if __name__ == '__main__':

@@ -39,7 +39,6 @@ class Kick:
         print('Bump')
 
 
-
 class Superman(SuperHero, Laser):
 
     def __init__(self):
@@ -59,6 +58,3 @@ class ChackNorris(SuperHero, Gun):
 
     def attack(self):
         self.fire_a_gun()
-
-
-

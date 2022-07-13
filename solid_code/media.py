@@ -2,6 +2,7 @@ from abc import abstractmethod, ABC
 from places import Place
 from heroes import SuperHero
 
+
 class Media(ABC):
     @abstractmethod
     def create_news(self, place: Place, hero: SuperHero):

@@ -13,27 +13,25 @@ def decorator_with_params(call_count, start_sleep_time, factor, border_sleep_tim
             i = 1
             while time1 <= border_sleep_time and call_count >= i:
 
-
                 if time1 < border_sleep_time:
-                    time1 = factor ** (i-1)
+                    time1 = factor ** (i - 1)
                 elif time1 > border_sleep_time:
                     time1 = time1
-
 
                 def result():
                     if time1 in [2, 3, 4]:
                         print("Запуск номер " + str(i) + ". Ожидание: " + str(time1) + " секунды. Результат "
-                                                                                      "декорируемой функций = " +
+                                                                                       "декорируемой функций = " +
                               str(func(*args, **kwargs)) + ". "
                               )
                     elif time1 in [1]:
                         print("Запуск номер " + str(i) + ". Ожидание: " + str(time1) + " секунда. Результат "
-                                                                                      "декорируемой функций = " +
+                                                                                       "декорируемой функций = " +
                               str(func(*args, **kwargs)) + ". "
                               )
                     else:
                         print("Запуск номер " + str(i) + ". Ожидание: " + str(time1) + " секунд.  Результат "
-                                                                                      "декорируемой функций = " +
+                                                                                       "декорируемой функций = " +
                               str(func(*args, **kwargs)) + ". "
                               )
 
